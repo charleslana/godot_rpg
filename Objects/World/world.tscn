@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://bd7ks4wl203e5"]
+
+[ext_resource type="Texture2D" uid="uid://bkpcbdbjmmlga" path="res://Assets/Images/Backgrounds/Battleground1.png" id="1_a7gd4"]
+[ext_resource type="PackedScene" uid="uid://cskibtggmlhi7" path="res://Objects/Character/character.tscn" id="2_v2x2n"]
+
+[node name="World" type="Node2D"]
+
+[node name="Battleground1" type="Sprite2D" parent="."]
+position = Vector2(483.445, 269.75)
+scale = Vector2(0.506019, 0.506019)
+texture = ExtResource("1_a7gd4")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(480, 270)
+
+[node name="Node2D" type="Node2D" parent="."]
+
+[node name="Character" parent="Node2D" instance=ExtResource("2_v2x2n")]
+position = Vector2(273, 205)

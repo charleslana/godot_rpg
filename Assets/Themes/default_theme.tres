@@ -1,0 +1,6 @@
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://bakwovji80vev"]
+
+[ext_resource type="FontFile" uid="uid://cy6ltvv6r6try" path="res://Assets/Fonts/Roboto/Roboto-Regular.ttf" id="1_fqf8d"]
+
+[resource]
+default_font = ExtResource("1_fqf8d")

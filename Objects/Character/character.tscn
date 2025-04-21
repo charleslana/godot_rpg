@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=3 uid="uid://cskibtggmlhi7"]
+[gd_scene load_steps=38 format=3 uid="uid://cskibtggmlhi7"]
 
 [ext_resource type="Texture2D" uid="uid://dkwtwdtquc1j7" path="res://Assets/Images/Characters/Samurai/Attack_1.png" id="1_50pkv"]
 [ext_resource type="Texture2D" uid="uid://u32al0ueaeui" path="res://Assets/Images/Characters/Samurai/Idle.png" id="1_tu3j6"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://mwde8w45wg7l" path="res://Assets/Images/Characters/Samurai/Hurt.png" id="2_5k0xa"]
 [ext_resource type="Texture2D" uid="uid://dv5hvghmovgug" path="res://Assets/Images/Characters/Samurai/Dead.png" id="2_sptof"]
 [ext_resource type="Texture2D" uid="uid://6iarvoe1jpgb" path="res://Assets/Images/Characters/Samurai/Run.png" id="3_02omr"]
+[ext_resource type="PackedScene" uid="uid://3wsah0c6phc7" path="res://UI/actions.tscn" id="7_y6e2n"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_evs3l"]
 
@@ -226,6 +227,8 @@ animations = [{
 "speed": 10.0
 }]
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_y6e2n"]
+
 [node name="Character" type="CharacterBody2D"]
 motion_mode = 1
 script = ExtResource("1_vdpcn")
@@ -234,6 +237,22 @@ script = ExtResource("1_vdpcn")
 shape = SubResource("CapsuleShape2D_evs3l")
 
 [node name="Animation" type="AnimatedSprite2D" parent="."]
+position = Vector2(-1, -1)
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_evs3l")
 animation = &"idle"
+
+[node name="Actions" parent="." instance=ExtResource("7_y6e2n")]
+offset_left = 111.0
+offset_top = 57.0
+offset_right = 111.0
+offset_bottom = 57.0
+
+[node name="Panel" type="Panel" parent="."]
+offset_left = -133.0
+offset_top = -26.0
+offset_right = -14.0
+offset_bottom = 131.0
+theme_override_styles/panel = SubResource("StyleBoxEmpty_y6e2n")
+
+[connection signal="gui_input" from="Panel" to="." method="_on_panel_gui_input"]
